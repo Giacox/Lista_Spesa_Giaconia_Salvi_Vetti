@@ -6,7 +6,7 @@
 
   onMount(async () => {
     try {
-      const res = await fetch('http://localhost:3000/api/articles');
+      const res = await fetch(`${API_BASE}/api/articles`);
       if (!res.ok) throw new Error('Errore nella richiesta');
       articoli = await res.json();
     } catch (err) {
