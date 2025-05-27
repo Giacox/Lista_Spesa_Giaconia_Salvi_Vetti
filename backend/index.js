@@ -6,7 +6,15 @@ const verifyToken = require('./authmiddleware');
 require('dotenv').config();
 
 const app = express();
-app.use(cors());
+const corsOptions = {
+  origin: 'https://lista-spesa-giaconia-salvi-vetti.vercel.app',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
+};
+
+app.use(cors(corsOptions));
+
 app.use(bodyParser.json());
 
 const connectToDatabase = async () => {
